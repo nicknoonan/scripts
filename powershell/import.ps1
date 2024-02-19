@@ -9,6 +9,10 @@ param (
     [string]$InstallLocation = "$(($env:psmodulepath -split ';')[0])/NoonanScripts"
 )
 
+if (-not (Test-Path $InstallLocation)) {
+    mkdir $InstallLocation
+}
+
 foreach ($moduleName in $Modules) {
     $moduleFileName = "$moduleName.psm1";
     $moduleFilePath = "$InstallLocation/$moduleFileName";
