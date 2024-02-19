@@ -15,6 +15,4 @@ function Reset-NetAdapter {
     Write-Verbose "Enabling network adapter: $MacAddress";
     $adapter | Enable-NetAdapter -Confirm:$false;
     Write-Verbose "Enabled!";
-
-    write-host "hello!";
 }
