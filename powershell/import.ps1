@@ -16,7 +16,7 @@ if (-not (Test-Path $InstallLocation)) {
 
 foreach ($moduleName in $Modules) {
     $moduleFileName = "$moduleName.psm1";
-    $moduleFilePath = "$InstallLocation\$moduleFileName"; #wtf
+    $moduleFilePath = "$InstallLocation\$moduleFileName";
     $ContentUri = "$BaseContentUri/$moduleFileName";
     Write-Host "Downloading $ContentUri to $moduleFilePath";
     Invoke-RestMethod $ContentUri -OutFile $moduleFilePath;
