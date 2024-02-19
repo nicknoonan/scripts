@@ -10,6 +10,7 @@ param (
 )
 
 if (-not (Test-Path $InstallLocation)) {
+    write-host $InstallLocation
     mkdir $InstallLocation
 }
 
