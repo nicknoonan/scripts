@@ -21,5 +21,6 @@ foreach ($moduleName in $Modules) {
     Write-Host "Downloading $ContentUri to $moduleFilePath";
     Invoke-RestMethod $ContentUri -OutFile $moduleFilePath;
     Get-Module $moduleName | Remove-Module;
+    Write-Host "Importing $moduleFilePath";
     Import-Module $moduleFilePath -Force;
 }
