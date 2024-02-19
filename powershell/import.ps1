@@ -14,5 +14,6 @@ foreach ($moduleName in $Modules) {
     $moduleFilePath = "$InstallLocation/$moduleFileName";
     $ContentUri = "$BaseContentUri/$moduleFileName";
     Invoke-WebRequest $ContentUri -OutFile $moduleFilePath;
+    Get-Module $moduleName | Remove-Module;
     Import-Module $moduleFilePath -Force;
 }
