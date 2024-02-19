@@ -16,10 +16,10 @@ if (-not (Test-Path $InstallLocation)) {
 
 foreach ($moduleName in $Modules) {
     $moduleFileName = "$moduleName.psm1";
-    $moduleFilePath = "$InstallLocation\$moduleFileName";
+    $moduleFilePath = "$InstallLocation\$moduleFileName"; #wtf
     $ContentUri = "$BaseContentUri/$moduleFileName";
     Write-Host "Downloading $ContentUri to $moduleFilePath";
-    Invoke-WebRequest $ContentUri -OutFile $moduleFilePath;
+    Invoke-RestMethod $ContentUri -OutFile $moduleFilePath;
     Get-Module $moduleName | Remove-Module;
     Import-Module $moduleFilePath -Force;
 }
