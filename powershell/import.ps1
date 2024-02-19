@@ -13,6 +13,7 @@ foreach ($moduleName in $Modules) {
     $moduleFileName = "$moduleName.psm1";
     $moduleFilePath = "$InstallLocation/$moduleFileName";
     $ContentUri = "$BaseContentUri/$moduleFileName";
+    write-host "$moduleFilePath";
     Invoke-WebRequest $ContentUri -OutFile $moduleFilePath;
     Get-Module $moduleName | Remove-Module;
     Import-Module $moduleFilePath -Force;
