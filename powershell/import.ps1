@@ -6,7 +6,7 @@ param (
     [Parameter()]
     [string]$BaseContentUri = "https://raw.githubusercontent.com/nicknoonan/scripts/main/powershell",
     [Parameter()]
-    [string]$InstallLocation = "$(($env:psmodulepath -split ';')[0])/NoonanScripts"
+    [string]$InstallLocation = "$(($env:psmodulepath -split ';')[0])\NoonanScripts"
 )
 
 if (-not (Test-Path $InstallLocation)) {
