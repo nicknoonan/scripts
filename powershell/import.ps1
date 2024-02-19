@@ -6,7 +6,7 @@ param (
     [Parameter()]
     [string]$BaseContentUri = "https://raw.githubusercontent.com/nicknoonan/scripts/main/powershell",
     [Parameter()]
-    [string]$InstallLocation = $PSScriptRoot
+    [string]$InstallLocation = "$(($env:psmodulepath -split ';')[0])/NoonanScripts"
 )
 
 foreach ($moduleName in $Modules) {
