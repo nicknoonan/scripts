@@ -1,6 +1,6 @@
 function Reset-NetAdapter {
     param(
-        [Paramater(Mandatory)]
+        [Parameter(Mandatory)]
         [string]$MacAddress
     )
     $adapter = Get-NetAdapter | Where-Object {$_.MacAddress -eq $MacAddress}
@@ -15,4 +15,6 @@ function Reset-NetAdapter {
     Write-Verbose "Enabling network adapter: $MacAddress";
     $adapter | Enable-NetAdapter -Confirm:$false;
     Write-Verbose "Enabled!";
+
+    write-host "hello!";
 }
